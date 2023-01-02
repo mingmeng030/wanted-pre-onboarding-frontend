@@ -32,26 +32,28 @@ const Form = ({ todoList, setTodoList }) => {
   };
   return (
     <div className="Todo-Top-Container">
-      <h1>Write down what your have to do 📌</h1>
-      <form id="todo-create-form">
-        <input
-          className="Todo-title-input"
-          placeholder="Wrtie title here"
-          onChange={handleTodoTitle}
-        />
-        <textarea
-          className="Todo-content-textarea"
-          placeholder="Wrtie Content here"
-          onChange={handleTodoContent}
-        ></textarea>
-        <button
-          type="submit"
-          className="createButton"
-          onClick={createTodoButton}
-        >
-          add to list
-        </button>
-      </form>
+      <div className="Todo-Container">
+        <h1>Write down what your have to do 📌</h1>
+        <form id="todo-create-form">
+          <input
+            className="Todo-title-input"
+            placeholder="Wrtie title here"
+            onChange={handleTodoTitle}
+          />
+          <textarea
+            className="Todo-content-textarea"
+            placeholder="Wrtie Content here"
+            onChange={handleTodoContent}
+          ></textarea>
+          <button
+            type="submit"
+            className="createButton"
+            onClick={createTodoButton}
+          >
+            add to list
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

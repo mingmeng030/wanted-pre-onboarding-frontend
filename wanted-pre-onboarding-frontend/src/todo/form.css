@@ -1,13 +1,17 @@
 @import "../static//reset.css";
 
 .Todo-Top-Container {
-  background-color: rgb(34, 62, 74);
-  border-radius: 20px;
-  width: 500px;
-  height: 400px;
 }
 
-.Todo-Top-Container > h1 {
+.Todo-Container {
+  background-color: rgb(34, 62, 74);
+  border-radius: 20px;
+  width: 550px;
+  height: 400px;
+  text-align: center;
+}
+
+.Todo-Container > h1 {
   color: rgb(226, 177, 16);
   padding-top: 40px;
 }
@@ -45,5 +49,5 @@
   font-size: 15px;
   font-weight: 600;
   float: right;
-  margin-right: 70px;
+  margin-right: 20px;
 }

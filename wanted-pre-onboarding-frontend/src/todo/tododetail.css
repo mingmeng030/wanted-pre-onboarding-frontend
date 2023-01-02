@@ -3,15 +3,31 @@
 .Todo-Detail-Top-Container {
   background-color: rgb(34, 62, 74);
   border-radius: 20px;
+  margin-left: 50px;
+}
+
+.Todo-Detail-Container {
   width: 600px;
   height: 400px;
 }
 
-.Todo-Detail-Container {
+.Todo-Detail-Title,
+.Todo-Detail-Content {
+  width: 80%;
+  padding-left: 60px;
 }
 
 .Todo-Detail-Title {
+  padding-top: 50px;
+  color: rgb(226, 177, 16);
+  font-weight: 600;
+  font-size: 25px;
+  padding-bottom: 5px;
 }
 
 .Todo-Detail-Content {
+  line-height: 40px;
+  padding-top: 40px;
+  color: rgb(206, 206, 205);
+  font-size: 18px;
 }

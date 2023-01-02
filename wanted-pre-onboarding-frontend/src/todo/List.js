@@ -8,8 +8,6 @@ import UpdateForm from "./UpdateForm";
 import { useSelector, useDispatch } from "react-redux";
 import { setDetailItem } from "../Redux/Actions/changeDetailItemToShow";
 
-import { setToDoList } from "../Redux/Actions/changeToDoList";
-
 const List = () => {
   const dispatch = useDispatch();
   const setDetailTodo = useCallback(

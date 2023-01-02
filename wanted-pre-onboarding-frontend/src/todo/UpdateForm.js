@@ -1,9 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { config } from "../config";
 import axios from "axios";
 import "./updateForm.css";
 
+import { useSelector, useDispatch } from "react-redux";
+import { setToDoList } from "../Redux/Actions/changeToDoList";
+
 const UpdateForm = ({ todoItem, setUpdateMode }) => {
+  const dispatch = useDispatch();
+  const setTodoList = useCallback(
+    (todoList) => dispatch(setToDoList(todoList)),
+    [dispatch]
+  );
+  const todoList = useSelector((state) => state.ToDoListReducer.todoList);
+
   const [newTitle, setnewTitle] = useState(todoItem.title);
   const [newContent, setnewContent] = useState(todoItem.content);
 
@@ -20,6 +30,15 @@ const UpdateForm = ({ todoItem, setUpdateMode }) => {
 
   const updateTodoButton = (e) => {
     e.preventDefault();
+
+    const newData = {
+      id: todoItem.id,
+      createdAt: todoItem.createdAt,
+      updatedAt: todoItem.updatedAt,
+      title: newTitle,
+      content: newContent,
+    };
+
     axios({
       method: "PUT",
       url: `${config.api}/todos/${todoItem.id}`,
@@ -32,8 +51,10 @@ const UpdateForm = ({ todoItem, setUpdateMode }) => {
         content: newContent,
       },
     }).then((res) => {
-      setnewTitle(res.data.data.title);
-      setnewContent(res.data.data.content);
+      //updateAction 추가
+      setTodoList([...todoList, newData]);
+      // setnewTitle(res.data.data.title);
+      // setnewContent(res.data.data.content);
       setUpdateMode(null);
     });
   };
