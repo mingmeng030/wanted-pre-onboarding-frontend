@@ -1,0 +1,32 @@
+@import "../static//reset.css";
+
+.todo-update-form {
+}
+.Todo-title-input-update,
+.Todo-content-textarea-update {
+  font-size: 13px;
+  border-radius: 5px;
+  border: 1px solid rgb(117, 117, 117);
+  padding: 5px;
+  width: 400px;
+}
+
+.Todo-title-input-update {
+  height: 20px;
+  margin: 0 20px 10px 0;
+}
+
+.Todo-content-textarea-update {
+  height: 70px;
+  margin: 10px 20px 0px 0;
+}
+
+.Todo-Update-Form-Buttons {
+  float: right;
+}
+
+.Todo-Update-Form-Buttons > button {
+  color: rgb(226, 177, 16);
+
+  font-weight: 600;
+}

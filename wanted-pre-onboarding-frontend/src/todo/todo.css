@@ -1,0 +1,16 @@
+@import "../static//reset.css";
+
+.Todo-Top-Container {
+  margin-left: 60px;
+}
+
+.Todo-col-1 {
+  /* width: 1000px; */
+  position: absolute;
+  display: flex;
+}
+
+.Todo-col-2 {
+  position: absolute;
+  margin-top: 450px;
+}

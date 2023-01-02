@@ -1,0 +1,17 @@
+@import "../static//reset.css";
+
+.Todo-Detail-Top-Container {
+  background-color: rgb(34, 62, 74);
+  border-radius: 20px;
+  width: 600px;
+  height: 400px;
+}
+
+.Todo-Detail-Container {
+}
+
+.Todo-Detail-Title {
+}
+
+.Todo-Detail-Content {
+}

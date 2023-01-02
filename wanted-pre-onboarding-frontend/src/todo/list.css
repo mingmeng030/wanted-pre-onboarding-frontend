@@ -1,0 +1,61 @@
+@import "../static//reset.css";
+/* 
+background-color: rgb(34, 62, 74);
+color: rgb(226, 177, 16); 
+*/
+
+.Todo-List-container {
+  padding: 30px;
+  border-radius: 20px;
+  background-color: rgb(34, 62, 74);
+  width: 500px;
+}
+
+.Todo-List-container > h1 {
+  /* padding-top: 20px; */
+  color: rgb(226, 177, 16);
+}
+.Todo-List-ul {
+}
+
+.Todo-List-li {
+  min-height: 80px;
+  border-radius: 20px;
+  border: 1px solid rgb(75, 87, 98);
+  padding: 20px;
+  margin-top: 20px;
+  /* background-color: rgb(116, 95, 15); */
+}
+
+.Todo-List-Title {
+  color: rgb(125, 142, 153);
+  font-weight: 600;
+  font-size: 20px;
+  padding-bottom: 5px;
+}
+
+.Todo-List-Content {
+  color: rgb(129, 140, 148);
+  max-height: 25px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.Todo-List-Buttons {
+  float: right;
+}
+
+.updateButton,
+.deleteButton {
+  color: rgb(226, 177, 16);
+  font-weight: 600;
+  font-size: 20px;
+}
+.updateButton {
+}
+.deleteButton {
+}
