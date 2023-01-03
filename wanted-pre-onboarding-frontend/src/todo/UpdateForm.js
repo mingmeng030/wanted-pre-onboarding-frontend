@@ -4,15 +4,16 @@ import axios from "axios";
 import "./updateForm.css";
 
 import { useSelector, useDispatch } from "react-redux";
-import { setToDoList } from "../Redux/Actions/changeToDoList";
+// import { setToDoList } from "../Redux/Actions/changeToDoList";
+import { updateTodoList } from "../Redux/Actions/changeToDoList";
 
 const UpdateForm = ({ todoItem, setUpdateMode }) => {
   const dispatch = useDispatch();
-  const setTodoList = useCallback(
-    (todoList) => dispatch(setToDoList(todoList)),
+
+  const updateTodoList = useCallback(
+    (newTodo) => dispatch(updateTodoList(newTodo)),
     [dispatch]
   );
-  const todoList = useSelector((state) => state.ToDoListReducer.todoList);
 
   const [newTitle, setnewTitle] = useState(todoItem.title);
   const [newContent, setnewContent] = useState(todoItem.content);
@@ -51,10 +52,7 @@ const UpdateForm = ({ todoItem, setUpdateMode }) => {
         content: newContent,
       },
     }).then((res) => {
-      //updateAction 추가
-      setTodoList([...todoList, newData]);
-      // setnewTitle(res.data.data.title);
-      // setnewContent(res.data.data.content);
+      updateTodoList(newData);
       setUpdateMode(null);
     });
   };
