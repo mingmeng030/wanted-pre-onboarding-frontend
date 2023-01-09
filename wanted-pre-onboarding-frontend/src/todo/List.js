@@ -7,14 +7,20 @@ import UpdateForm from "./UpdateForm";
 
 import { useSelector, useDispatch } from "react-redux";
 import { setDetailItem } from "../Redux/Actions/changeDetailItemToShow";
+import { deleteTodoList } from "../Redux/Actions/changeToDoList";
 
 const List = () => {
   const dispatch = useDispatch();
+
   const setDetailTodo = useCallback(
     (detailItem) => dispatch(setDetailItem(detailItem)),
     [dispatch]
   );
 
+  const deleteFromList = useCallback(
+    (deleteTodo) => dispatch(deleteTodoList(deleteTodo)),
+    [dispatch]
+  );
   const todoList = useSelector((state) => state.ToDoListReducer.todoList);
 
   const [updatemode, setUpdateMode] = useState(null);
@@ -28,9 +34,17 @@ const List = () => {
           "Content-Type": `application/json`,
           Authorization: `Bearer ${localStorage.getItem("access_token")}`,
         },
-      }).then((res) => {
-        window.alert("삭제 완료!");
-      });
+      })
+        .then((res) => {
+          return deleteFromList(item);
+        })
+        .then((res) => {
+          if (res) {
+            window.alert("삭제 완료!");
+          } else {
+            window.alert("삭제 오류 발생");
+          }
+        });
     } else {
       window.alert("삭제가 취소되었습니다.");
     }

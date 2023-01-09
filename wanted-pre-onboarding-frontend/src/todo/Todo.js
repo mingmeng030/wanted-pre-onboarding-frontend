@@ -12,10 +12,12 @@ import { setDetailItem } from "../Redux/Actions/changeDetailItemToShow";
 
 const Todo = () => {
   const dispatch = useDispatch();
+
   const setTodoList = useCallback(
     (todoList) => dispatch(setToDoList(todoList)),
     [dispatch]
   );
+
   const setDetailTodo = useCallback(
     (detailItem) => dispatch(setDetailItem(detailItem)),
     [dispatch]
@@ -42,7 +44,6 @@ const Todo = () => {
         localStorage.getItem("access_token") == undefined) && (
         <Navigate to="/auth" replace={true} />
       )}
-      {/* <div className="Todo-col"> */}
       <div className="Todo-col-1">
         <Form></Form>
         <TodoDetail></TodoDetail>
@@ -50,8 +51,6 @@ const Todo = () => {
       <div className="Todo-col-2">
         <List></List>
       </div>
-
-      {/* </div> */}
     </div>
   );
 };

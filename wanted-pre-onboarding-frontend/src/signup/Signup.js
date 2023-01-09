@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { config } from "../config";
 import axios from "axios";
+import "./signup.css";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -47,20 +48,20 @@ const Signup = () => {
 
   return (
     <div className="Signup-Top-Container">
-      <p>회원가입</p>
-      <div className="Signup-input">
+      <p className="Signup-Header">회원가입</p>
+      <div className="Signup inputContainer">
         <p>
-          이메일
+          <span className="Signup EmailHeader">이메일</span>
           <input
-            className="Signup-inputTitle"
+            className="Signup inputEmail"
             placeholder="이메일 입력해주세요"
             onChange={handleEmail}
           />
         </p>
         <p>
-          비밀번호
+          <span className="Signup PasswordHeader">비밀번호</span>
           <input
-            className="Signup-inputDescription"
+            className="Signup inputPassword"
             placeholder="비밀번호를 입력해주세요(8자리 이상)"
             onChange={handlePassword}
             type="password"
@@ -68,7 +69,9 @@ const Signup = () => {
         </p>
       </div>
       {emailCondition && passwordCondition && (
-        <button onClick={onSubmitButtonClick}>회원가입</button>
+        <button className="signupButton" onClick={onSubmitButtonClick}>
+          회원가입
+        </button>
       )}
     </div>
   );

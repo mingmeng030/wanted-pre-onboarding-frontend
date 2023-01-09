@@ -4,13 +4,12 @@ import axios from "axios";
 import "./updateForm.css";
 
 import { useSelector, useDispatch } from "react-redux";
-// import { setToDoList } from "../Redux/Actions/changeToDoList";
 import { updateTodoList } from "../Redux/Actions/changeToDoList";
 
 const UpdateForm = ({ todoItem, setUpdateMode }) => {
   const dispatch = useDispatch();
 
-  const updateTodoList = useCallback(
+  const updateTodo = useCallback(
     (newTodo) => dispatch(updateTodoList(newTodo)),
     [dispatch]
   );
@@ -32,14 +31,6 @@ const UpdateForm = ({ todoItem, setUpdateMode }) => {
   const updateTodoButton = (e) => {
     e.preventDefault();
 
-    const newData = {
-      id: todoItem.id,
-      createdAt: todoItem.createdAt,
-      updatedAt: todoItem.updatedAt,
-      title: newTitle,
-      content: newContent,
-    };
-
     axios({
       method: "PUT",
       url: `${config.api}/todos/${todoItem.id}`,
@@ -51,10 +42,17 @@ const UpdateForm = ({ todoItem, setUpdateMode }) => {
         title: newTitle,
         content: newContent,
       },
-    }).then((res) => {
-      updateTodoList(newData);
-      setUpdateMode(null);
-    });
+    })
+      .then((res) => {
+        return updateTodo(res.data.data);
+      })
+      .then((res) => {
+        if (res) {
+          setUpdateMode(null);
+        } else {
+          window.alert("수정 오류 발생");
+        }
+      });
   };
 
   return (

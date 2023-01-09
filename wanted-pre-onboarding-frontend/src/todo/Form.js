@@ -1,11 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { config } from "../config";
 import axios from "axios";
 import "./form.css";
 
-const Form = ({ todoList, setTodoList }) => {
+import { useSelector, useDispatch } from "react-redux";
+import { setToDoList } from "../Redux/Actions/changeToDoList";
+
+const Form = () => {
+  const dispatch = useDispatch();
+
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+
+  const setTodoList = useCallback(
+    (todoList) => dispatch(setToDoList(todoList)),
+    [dispatch]
+  );
+  const todoList = useSelector((state) => state.ToDoListReducer.todoList);
 
   const handleTodoTitle = (e) => {
     setTitle(e.target.value);

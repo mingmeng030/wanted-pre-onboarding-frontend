@@ -14,14 +14,24 @@ const Main = () => {
       {localStorage.getItem("access_token") && (
         <Navigate to="/" replace={true} />
       )}
-      <div className="main-switch-button"></div>
-      <div className="main-login-button" onClick={() => setDisplayState(1)}>
-        로그인
+      <div>
+        {displayState ? <Login /> : <Signup />}
+        {displayState ? (
+          <button
+            className="main-signup-button"
+            onClick={() => setDisplayState(0)}
+          >
+            회원가입하기
+          </button>
+        ) : (
+          <button
+            className="main-login-button"
+            onClick={() => setDisplayState(1)}
+          >
+            로그인하기
+          </button>
+        )}
       </div>
-      <div className="main-signup-button" onClick={() => setDisplayState(0)}>
-        회원가입
-      </div>
-      {displayState ? <Login /> : <Signup />}
     </div>
   );
 };
