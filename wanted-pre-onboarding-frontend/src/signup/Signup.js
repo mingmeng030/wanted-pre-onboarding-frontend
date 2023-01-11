@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { config } from "../config";
 import axios from "axios";
 import "./signup.css";
 
 const Signup = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailCondition, setEmailCondition] = useState(false);
@@ -14,25 +16,19 @@ const Signup = () => {
   const handleEmail = (e) => {
     setEmail(e.target.value);
 
-    if (emailRegex.test(e.target.value)) {
-      setEmailCondition(true);
-      console.log("email true");
-    } else {
-      setEmailCondition(false);
-      console.log("email false");
-    }
+    emailRegex.test(e.target.value)
+      ? setEmailCondition(true)
+      : setEmailCondition(false);
   };
 
   const handlePassword = (e) => {
     setPassword(e.target.value);
-    if (e.target.value.length >= 8) {
-      setPasswordCondition(true);
-      console.log("password true");
-    } else {
-      setPasswordCondition(false);
-      console.log("password false");
-    }
+
+    e.target.value.length >= 8
+      ? setPasswordCondition(true)
+      : setPasswordCondition(false);
   };
+
   const onSubmitButtonClick = () => {
     axios({
       method: "POST",
@@ -41,9 +37,14 @@ const Signup = () => {
         email: email,
         password: password,
       },
-    }).then((res) => {
-      window.alert("회원가입 완료!");
-    });
+    })
+      .then((res) => {
+        window.alert("회원가입 완료!");
+      })
+      .catch((err) => {
+        window.alert("회원가입에 실패했습니다.");
+        navigate("/auth");
+      });
   };
 
   return (
@@ -51,15 +52,15 @@ const Signup = () => {
       <p className="Signup-Header">회원가입</p>
       <div className="Signup inputContainer">
         <p>
-          <span className="Signup EmailHeader">이메일</span>
+          <span className="login EmailHeader">🧑🏻‍💻</span>
           <input
-            className="Signup inputEmail"
+            className="login inputEmail"
             placeholder="이메일 입력해주세요"
             onChange={handleEmail}
           />
         </p>
         <p>
-          <span className="Signup PasswordHeader">비밀번호</span>
+          <span className="login PasswordHeader">🔒</span>
           <input
             className="Signup inputPassword"
             placeholder="비밀번호를 입력해주세요(8자리 이상)"

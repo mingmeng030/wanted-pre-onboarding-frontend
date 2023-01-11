@@ -5,14 +5,15 @@
 
 .Signup-Header {
   font-size: 20px;
-  /* background-color: aliceblue; */
   padding: 25px;
+  font-family: "nanum-bold";
 }
 
 .signupButton {
-  width: 150px;
+  width: 300px;
   padding: 10px;
-  border: 1px solid black;
+  border: 1px solid rgb(160, 166, 172);
+  background-color: rgb(181, 186, 191);
   border-radius: 15px;
   margin-top: 30px;
 }

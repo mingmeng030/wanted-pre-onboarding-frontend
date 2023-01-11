@@ -20,8 +20,6 @@ const ToDoListReducer = (state = initialState, action) => {
         state.todoList.splice(key, 1);
       }
     });
-    console.log(state);
-    return state;
   } else if (action.type == UPDATELIST) {
     let idx = 0;
     state.todoList.map((item, key) => {
@@ -30,8 +28,8 @@ const ToDoListReducer = (state = initialState, action) => {
       }
     });
     state.todoList[idx] = action.payload;
-    return state;
-  } else return state;
+  }
+  return state;
 };
 
 export default ToDoListReducer;

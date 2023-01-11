@@ -133,9 +133,20 @@ button {
   border: none;
   background-color: rgb(0, 0, 0, 0);
 }
-
+@font-face {
+  font-family: "nanum-regular";
+  src: url("./font/NanumGothic-Regular.ttf");
+}
+@font-face {
+  font-family: "nanum-extraBold";
+  src: url("./font/NanumGothic-ExtraBold.ttf");
+}
+@font-face {
+  font-family: "nanum-bold";
+  src: url("./font/NanumGothic-Bold.ttf");
+}
 * {
-  font-family: sans-serif;
+  font-family: "nanum-regular";
 }
 h1 {
   font-size: 25px;

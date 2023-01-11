@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import { config } from "../config";
 import axios from "axios";
 import "./form.css";
-
 import { useSelector, useDispatch } from "react-redux";
 import { setToDoList } from "../Redux/Actions/changeToDoList";
 
@@ -42,8 +41,8 @@ const Form = () => {
     });
   };
   return (
-    <div className="Todo-Top-Container">
-      <div className="Todo-Container">
+    <div className="Form-Top-Container">
+      <div className="Form-Container">
         <h1>Write down what your have to do 📌</h1>
         <form id="todo-create-form">
           <input

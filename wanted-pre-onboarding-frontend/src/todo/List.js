@@ -2,9 +2,6 @@ import React, { useState, useEffect, useCallback } from "react";
 import { config } from "../config";
 import axios from "axios";
 import "./list.css";
-
-import UpdateForm from "./UpdateForm";
-
 import { useSelector, useDispatch } from "react-redux";
 import { setDetailItem } from "../Redux/Actions/changeDetailItemToShow";
 import { deleteTodoList } from "../Redux/Actions/changeToDoList";
@@ -22,8 +19,6 @@ const List = () => {
     [dispatch]
   );
   const todoList = useSelector((state) => state.ToDoListReducer.todoList);
-
-  const [updatemode, setUpdateMode] = useState(null);
 
   const onDeleteButtonClicked = (item) => {
     if (window.confirm("삭제하시겠습니까?")) {
@@ -49,7 +44,6 @@ const List = () => {
       window.alert("삭제가 취소되었습니다.");
     }
   };
-
   return (
     <>
       <div className="Todo-List-container">
@@ -57,37 +51,22 @@ const List = () => {
         <ul className="Todo-List-ul">
           {todoList.map((item, index) => (
             <li className="Todo-List-li">
-              {updatemode == item.id ? (
-                <UpdateForm
-                  todoItem={item}
-                  setUpdateMode={setUpdateMode}
-                ></UpdateForm>
-              ) : (
-                <div onClick={() => setDetailTodo(item)}>
-                  <span className="Todo-List-Title">{item.title}</span>
-                  <p className="Todo-List-Content">
-                    <span>{item.content}</span>
-                  </p>
-                  <div className="Todo-List-Buttons">
-                    <button
-                      className="updateButton"
-                      onClick={() => {
-                        setUpdateMode(item.id);
-                      }}
-                    >
-                      🖊
-                    </button>
-                    <button
-                      className="deleteButton"
-                      onClick={() => {
-                        onDeleteButtonClicked(item);
-                      }}
-                    >
-                      🗑
-                    </button>
-                  </div>
-                </div>
-              )}
+              <div onClick={() => setDetailTodo(item)}>
+                <span className="Todo-List-Title">{item.title}</span>
+                <p className="Todo-List-Content">
+                  <span>{item.content}</span>
+                </p>
+              </div>
+              <div className="Todo-List-Buttons">
+                <button
+                  className="deleteButton"
+                  onClick={() => {
+                    onDeleteButtonClicked(item);
+                  }}
+                >
+                  🗑
+                </button>
+              </div>
             </li>
           ))}
         </ul>

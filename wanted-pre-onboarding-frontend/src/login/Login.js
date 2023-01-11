@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { config } from "../config";
 import axios from "axios";
@@ -51,13 +51,8 @@ const Login = () => {
     })
       .then((res) => {
         localStorage.setItem("access_token", res.data.access_token);
-        return true;
-      })
-      .then((res) => {
-        console.log("token saved!");
         navigate("/");
       })
-
       .catch((err) => {
         window.alert("로그인에 실패했습니다.");
         navigate("/auth");
@@ -69,7 +64,7 @@ const Login = () => {
       <p className="Login-Header">로그인</p>
       <div className="login inputContainer">
         <p>
-          <span className="login EmailHeader">이메일</span>
+          <span className="login EmailHeader">🧑🏻‍💻</span>
           <input
             className="login inputEmail"
             placeholder="이메일 입력해주세요"
@@ -77,7 +72,7 @@ const Login = () => {
           />
         </p>
         <p>
-          <span className="login PasswordHeader">비밀번호</span>
+          <span className="login PasswordHeader">🔒</span>
           <input
             className="login inputPassword"
             placeholder="비밀번호를 입력해주세요(8자리 이상)"
@@ -87,7 +82,11 @@ const Login = () => {
         </p>
       </div>
       {emailCondition && passwordCondition && (
-        <button className="loginButton" onClick={onSubmitButtonClick}>
+        <button
+          type="button"
+          className="loginButton"
+          onClick={onSubmitButtonClick}
+        >
           로그인
         </button>
       )}

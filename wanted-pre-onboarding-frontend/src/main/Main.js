@@ -21,14 +21,14 @@ const Main = () => {
             className="main-signup-button"
             onClick={() => setDisplayState(0)}
           >
-            회원가입하기
+            회원가입하려면 여기를 클릭하세요
           </button>
         ) : (
           <button
             className="main-login-button"
             onClick={() => setDisplayState(1)}
           >
-            로그인하기
+            로그인하려면 여기를 클릭하세요
           </button>
         )}
       </div>

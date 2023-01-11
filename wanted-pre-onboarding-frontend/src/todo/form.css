@@ -1,24 +1,24 @@
 @import "../static//reset.css";
 
-.Todo-Top-Container {
+.Form-Top-Container {
+  display: block;
 }
 
-.Todo-Container {
+.Form-Container {
   background-color: rgb(34, 62, 74);
   border-radius: 20px;
-  width: 550px;
-  height: 400px;
+  width: 650px;
+  height: 450px;
   text-align: center;
 }
 
-.Todo-Container > h1 {
+.Form-Container > h1 {
+  font-family: "nanum-extraBold";
   color: rgb(226, 177, 16);
-  padding-top: 40px;
+  padding: 40px;
 }
 
 .todo-create-form {
-  display: flex;
-  flex-direction: column;
 }
 
 .Todo-title-input,
@@ -27,16 +27,16 @@
   border-radius: 10px;
   border: 1px solid rgb(117, 117, 117);
   padding: 10px;
-  width: 400px;
+  width: 450px;
 }
 
 .Todo-title-input {
   height: 30px;
-  margin: 40px 20px 10px 0;
+  margin: 0 20px 10px 0;
 }
 
 .Todo-content-textarea {
-  height: 120px;
+  height: 170px;
   margin: 10px 20px 20px 0;
 }
 
@@ -45,9 +45,8 @@
   border: 2px solid rgb(226, 177, 16);
   border-radius: 10px;
   padding: 5px;
-  width: 100px;
+  width: 450px;
   font-size: 15px;
   font-weight: 600;
-  float: right;
-  margin-right: 20px;
+  /* margin-right: 20px; */
 }
